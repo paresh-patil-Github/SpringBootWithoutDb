@@ -1,7 +1,10 @@
 package com.jbk.controller;
 
+import java.util.UUID;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,18 +19,17 @@ public class ProductController {
 	ProductService service = new ProductServiceIMPL();
 	Product product = null;
 
-	@PostMapping("/save-product")
+	@PutMapping("/save-product")
 	public String saveProduct(@RequestBody Product product) {
-
+		product.setProductId(UUID.randomUUID().toString());
 		String msg = service.saveProduct(product);
-
+		System.out.println(product);
 		return msg;
-
 	}
-	
+
 	@RequestMapping("/get-product/{id}")
 	public Product getProductById(@PathVariable String productId) {
-
+		
 		product = service.getProductById(productId);
 		return product;
 
