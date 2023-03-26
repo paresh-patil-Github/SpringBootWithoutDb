@@ -12,7 +12,7 @@ public class ProductDaoIMPL implements ProductDao {
 	@Override
 	public String saveProduct(Product product) {
 		list.add(product);
-		return "Product saved!";
+		return "Product is saved!";
 	}
 
 	@Override
