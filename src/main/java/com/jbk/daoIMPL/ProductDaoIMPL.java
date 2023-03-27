@@ -17,7 +17,24 @@ public class ProductDaoIMPL implements ProductDao {
 
 	@Override
 	public Product getProductById(String productId) {
-		return null;
+		Product product = new  Product();
+		for(int i=0;list.size()>i;i++) {
+			if(list.get(i).getProductId().equals(productId))
+				product = list.get(i);
+		}
+		return product;
+	}
+
+	@Override
+	public List<Product> getProduct() {
+		List<Product> list2 = new ArrayList<Product>();
+		int i= 0;
+		while(list.size()!=0) {
+			
+			list2.add(list.get(i));
+			i++;
+		}
+		return list2;
 	}
 
 }

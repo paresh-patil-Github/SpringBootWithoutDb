@@ -1,5 +1,8 @@
 package com.jbk.serviceIMPL;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.jbk.dao.ProductDao;
 import com.jbk.daoIMPL.ProductDaoIMPL;
 import com.jbk.model.Product;
@@ -17,8 +20,15 @@ public class ProductServiceIMPL implements ProductService {
 
 	@Override
 	public Product getProductById(String productId) {
-		
-		return null;
+		Product product = dao.getProductById(productId);
+		return product;
+	}
+
+	@Override
+	public List<Product> getProduct() {
+		List<Product> list = new ArrayList<Product>();
+		list = dao.getProduct();
+		return list;
 	}
 
 }
