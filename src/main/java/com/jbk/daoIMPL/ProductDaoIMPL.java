@@ -24,8 +24,18 @@ public class ProductDaoIMPL implements ProductDao {
 				this.product = product;
 			else
 				System.out.println("No such product with "+ productId + " exsist.");
-		}
 		return product;
+}
+	@Override
+	public List<Product> getProduct() {
+		List<Product> list2 = new ArrayList<Product>();
+		int i= 0;
+		while(list.size()!=0) {
+			
+			list2.add(list.get(i));
+			i++;
+		}
+		return list2;
 	}
 
 }

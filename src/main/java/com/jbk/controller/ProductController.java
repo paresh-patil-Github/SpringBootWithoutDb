@@ -1,7 +1,8 @@
 package com.jbk.controller;
-
 import java.util.UUID;
-
+import java.util.ArrayList;
+import java.util.List;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -26,13 +27,18 @@ public class ProductController {
 		System.out.println(product);
 		return msg;
 	}
-
-	@RequestMapping("/get-product/{id}")
-	public Product getProductById(@PathVariable String productId) {
 		
-		product = service.getProductById(productId);
+	@GetMapping("/get-allproduct")
+	public List<Product> getProduct(){
+		List<Product> list = new ArrayList();
+		list = service.getProduct();
+		return list;
+	}
+	
+	@GetMapping("/get-singleproduct")
+	public Product getProductById(@PathVariable String productId){
+		Product product = service.getProductById(productId);
 		return product;
-
 	}
 
 }
