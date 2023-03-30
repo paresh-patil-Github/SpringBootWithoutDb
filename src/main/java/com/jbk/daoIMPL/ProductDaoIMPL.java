@@ -9,6 +9,12 @@ import com.jbk.model.Product;
 public class ProductDaoIMPL implements ProductDao {
 
 	List<Product> list = new ArrayList();
+	
+	public ProductDaoIMPL() {
+		list.add(new Product("1", "XYZ", 1,1, 10, 10));
+		list.add(new Product("2", "abc", 1,1, 10, 12));
+		list.add(new Product("3", "pqr", 1,1, 10, 15));
+	}
 
 	@Override
 	public String saveProduct(Product product) {
@@ -19,7 +25,7 @@ public class ProductDaoIMPL implements ProductDao {
 	@Override
 	public Product getProductById(String productId) {
 		for (Product product : list) {
-			if (productId==product.getProductId()) {
+			if (productId.equals(product.getProductId())) {
 				return product;
 			}
 		}
@@ -28,14 +34,11 @@ public class ProductDaoIMPL implements ProductDao {
 }
 	@Override
 	public List<Product> getProduct() {
-		List<Product> list2 = new ArrayList<Product>();
-		int i= 0;
-		while(list.size()!=0) {
-			
-			list2.add(list.get(i));
-			i++;
+		if(!list.isEmpty()) {
+			return list;
+		}else {
+			return null;
 		}
-		return list2;
 	}
 
 }
