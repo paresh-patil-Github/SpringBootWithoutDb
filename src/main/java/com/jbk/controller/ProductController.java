@@ -38,6 +38,7 @@ public class ProductController {
 	@GetMapping("/get-singleproduct")
 	public Product getProductById(@PathVariable String productId){
 		Product product = service.getProductById(productId);
+		
 		return product;
 	}
 
