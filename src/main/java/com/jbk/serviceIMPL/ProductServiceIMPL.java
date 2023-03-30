@@ -11,16 +11,16 @@ import com.jbk.service.ProductService;
 public class ProductServiceIMPL implements ProductService {
 
 	ProductDao dao = new ProductDaoIMPL();
+  
 	@Override
 	public String saveProduct(Product product) {
-		
-		String msg = dao.saveProduct(product);
+    String msg = dao.saveProduct(product);
 		return msg;
 	}
 
 	@Override
 	public Product getProductById(String productId) {
-		Product product = dao.getProductById(productId);
+    Product product = dao.getProductById(productId);
 		return product;
 	}
 
