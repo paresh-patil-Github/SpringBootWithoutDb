@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jbk.model.Product;
@@ -30,13 +31,12 @@ public class ProductController {
 		
 	@GetMapping("/get-allproduct")
 	public List<Product> getProduct(){
-		List<Product> list = new ArrayList();
-		list = service.getProduct();
+		List<Product> list = service.getProduct();
 		return list;
 	}
 	
 	@GetMapping("/get-singleproduct")
-	public Product getProductById(@PathVariable String productId){
+	public Product getProductById(@RequestParam String productId){
 		Product product = service.getProductById(productId);
 		
 		return product;
