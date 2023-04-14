@@ -31,4 +31,47 @@ public class ProductServiceIMPL implements ProductService {
 		return list;
 	}
 
+	@Override
+	public String deleteProduct(String productId) {
+		
+		return dao.deleteProduct(productId);
+		
+		
+	}
+
+	@Override
+	public Product updateProduct(Product product) {
+		
+		return dao.updateProduct(product);
+	}
+
+	@Override
+	public List<Product> sortProductByIdASC() {
+		// TODO Auto-generated method stub
+		return dao.sortProductByIdASC();
+	}
+
+	@Override
+	public List<Product> sortProductByName() {
+		// TODO Auto-generated method stub
+		return dao. sortProductByName();
+	}
+
+	@Override
+	public Product productWithMaxPrice() {
+		// TODO Auto-generated method stub
+		return dao.productWithMaxPrice();
+	}
+
+	@Override
+	public double producPriceSum() {
+		// TODO Auto-generated method stub
+		return dao.producPriceSum();
+	}
+
+	@Override
+	public int totalProductCount() {
+		// TODO Auto-generated method stub
+		return dao.totalProductCount();
+	}
 }
